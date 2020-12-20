@@ -1,0 +1,7 @@
+hardware_interface:
+    loop_hz: 20 # hz
+    joints:
+      - $(arg prefix)front_right_wheel_joint 
+      - $(arg prefix)front_left_wheel_joint  
+      - $(arg prefix)rear_right_wheel_joint  
+      - $(arg prefix)rear_left_wheel_joint
