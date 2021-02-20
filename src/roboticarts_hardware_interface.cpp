@@ -57,12 +57,12 @@ namespace roboticarts_hardware_interface
 
         // Init real hardware 
         motor_velocity_setpoint.data.resize(num_joints_);
-        motor_pub_setpoint = nh_.advertise<std_msgs::Float32MultiArray>("teensy_motor_control/velocity_setpoint", 1000);
+        motor_pub_setpoint = nh_.advertise<std_msgs::Float32MultiArray>("motor_controller/set_setpoint", 1000);
 
         motor_state.position.resize(num_joints_);
         motor_state.velocity.resize(num_joints_);
         motor_state.effort.resize(num_joints_);
-        motor_sub_state = nh_.subscribe("teensy_motor_control/motor_state", 1, &MiniAtomHardwareInterface::motorStateCallback, this);
+        motor_sub_state = nh_.subscribe("motor_controller/get_state", 1, &MiniAtomHardwareInterface::motorStateCallback, this);
     }
 
     void MiniAtomHardwareInterface::motorStateCallback(const sensor_msgs::JointState::ConstPtr& msg){
